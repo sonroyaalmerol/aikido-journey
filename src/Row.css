@@ -1,4 +1,5 @@
 .row {
+  margin-top: 2rem;
   margin-left: 20px;
   color: white;
 }
@@ -9,10 +10,11 @@
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
-  padding: 20px;
+  padding: 40px;
 }
 
 .row__poster {
+  align-self: flex-start;
   object-fit: contain;
   width: 100%;
   max-height: 100px;
