@@ -3,13 +3,27 @@ import "./Row.css";
 import YouTube from "react-youtube";
 import { Lightbox } from "react-modal-image";
 
-function Row({ ref }) {
-  const movies = [{
-    id: 0,
-    url: 'sxZWSLloSaA',
-    imageUrl: '/aikidoBackground.png',
-    name: 'Aikido Benefits'
-  }];
+function Row() {
+  const movies = [
+    {
+      id: 'techniques1',
+      url: 'uA0hOyLLgIQ',
+      imageUrl: '/sumiOtoshi.png',
+      name: 'Sumi Otoshi'
+    },
+    {
+      id: 'techniques2',
+      url: '9tMdgrnexxA',
+      imageUrl: '/shomenUchi.png',
+      name: 'Shomen Uchi Ai Hanmi Dai Ikkyo'
+    },
+    {
+      id: 'techniques3',
+      url: 'KRN3huo81Js',
+      imageUrl: '/katateDori.png',
+      name: 'Katate Dori Ai Hanmi Dai Ikkyo'
+    },
+  ];
   const [trailerUrl, setTrailerUrl] = useState('');
   
   const youtubeOpts = {
@@ -20,28 +34,19 @@ function Row({ ref }) {
     },
   };
 
-  const toggleHistory = () => {
+  const toggleCore = () => {
     setTrailerUrl((prev) => {
-      if (prev !== 'history') {
-        return 'history';
+      if (prev !== 'core') {
+        return 'core';
       }
       return '';
     });
   }
 
   return (
-    <div className="row" ref={ref}>
-      <h2>Aikido Background</h2>
+    <div className="row">
+      <h2>Aikido Techniques</h2>
       <div className="row__posters">
-        <img
-          onClick={() =>
-            setTrailerUrl('history')
-          }
-          key='history'
-          className="row__poster"
-          src='historyThumbnail.png'
-          alt='History of Aikido'
-        />
         {movies.map((movie) => (
           <img
             onClick={() =>
@@ -61,13 +66,13 @@ function Row({ ref }) {
         {/* </div> */}
       </div>
       {trailerUrl !== "" && trailerUrl !== 'history' && <YouTube videoId={trailerUrl} opts={youtubeOpts} />}
-      {trailerUrl === 'history' ? (
+      {trailerUrl === 'core' ? (
         <Lightbox
           medium="/history.png"
           large="/history.png"
           alt="History of Aikido"
           hideZoom={false}
-          onClose={toggleHistory}
+          onClose={toggleCore}
         />
       ) : null}
     </div>

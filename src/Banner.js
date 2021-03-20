@@ -1,7 +1,7 @@
 import React from "react";
 import "./Banner.css";
 
-function Banner() {
+function Banner({ onPlay }) {
   return (
     <header
       className="banner"
@@ -19,7 +19,7 @@ function Banner() {
         <h1 className="banner__subtitle">
           of Son Roy Almerol
         </h1>
-        <button className="banner__button" style={{ marginTop: '1rem', marginBottom: '1rem' }}>
+        <button className="banner__button" style={{ marginTop: '1rem', marginBottom: '1rem' }} onClick={onPlay}>
           Play Series
         </button>
         <p className="banner__description">

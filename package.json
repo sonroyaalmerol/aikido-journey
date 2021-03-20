@@ -16,6 +16,7 @@
     "react-indiana-drag-scroll": "^1.8.1",
     "react-modal-image": "^2.5.0",
     "react-scripts": "4.0.3",
+    "react-scroll-horizontal": "^1.6.6",
     "react-spring": "^8.0.27",
     "react-youtube": "^7.13.1"
   },

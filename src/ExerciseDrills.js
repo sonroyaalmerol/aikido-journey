@@ -3,13 +3,21 @@ import "./Row.css";
 import YouTube from "react-youtube";
 import { Lightbox } from "react-modal-image";
 
-function Row({ ref }) {
-  const movies = [{
-    id: 0,
-    url: 'sxZWSLloSaA',
-    imageUrl: '/aikidoBackground.png',
-    name: 'Aikido Benefits'
-  }];
+function Row() {
+  const movies = [
+    {
+      id: 'drills1',
+      url: '6Je8ZH5iM04',
+      imageUrl: '/aikidoExercises.png',
+      name: 'Aikido Exercise Drills'
+    },
+    {
+      id: 'drills2',
+      url: 'hGGCPB_w-H8',
+      imageUrl: '/prelimExercises.png',
+      name: 'Aikido Preliminary Exercises'
+    },
+  ];
   const [trailerUrl, setTrailerUrl] = useState('');
   
   const youtubeOpts = {
@@ -20,27 +28,27 @@ function Row({ ref }) {
     },
   };
 
-  const toggleHistory = () => {
+  const toggleCore = () => {
     setTrailerUrl((prev) => {
-      if (prev !== 'history') {
-        return 'history';
+      if (prev !== 'core') {
+        return 'core';
       }
       return '';
     });
   }
 
   return (
-    <div className="row" ref={ref}>
-      <h2>Aikido Background</h2>
+    <div className="row">
+      <h2>Exercise Drills and Core Movements</h2>
       <div className="row__posters">
         <img
           onClick={() =>
-            setTrailerUrl('history')
+            window.open('https://drive.google.com/drive/folders/1CV5TfkgA-6-5oQwe7lZs0ZlDwLtKqskq?usp=sharing', '_blank')
           }
-          key='history'
+          key='core'
           className="row__poster"
-          src='historyThumbnail.png'
-          alt='History of Aikido'
+          src='PE-Comics/BackFall.png'
+          alt='Aikido Core Movements'
         />
         {movies.map((movie) => (
           <img
@@ -61,13 +69,13 @@ function Row({ ref }) {
         {/* </div> */}
       </div>
       {trailerUrl !== "" && trailerUrl !== 'history' && <YouTube videoId={trailerUrl} opts={youtubeOpts} />}
-      {trailerUrl === 'history' ? (
+      {trailerUrl === 'core' ? (
         <Lightbox
           medium="/history.png"
           large="/history.png"
           alt="History of Aikido"
           hideZoom={false}
-          onClose={toggleHistory}
+          onClose={toggleCore}
         />
       ) : null}
     </div>
